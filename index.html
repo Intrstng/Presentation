@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-background="#001949" data-background-transition="zoom">
+					<a href="https://ru.legacy.reactjs.org/docs/faq-internals.html">
+						<img src="https://www.syncfusion.com/blogs/wp-content/uploads/2023/07/The-Power-of-Reacts-Virtual-DOM-A-Comprehensive-Explanation.png" alt="virtual dom logo" style="height: 372px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+					</a>
+					<blockquote style="font-style: italic;
+            padding: 10px 0 10px 0;
+            border-left: 4px solid #ccc;
+						font-size: 1.25rem";
+					>
+						"The DOM is a bottleneck in frontend development" (c) John Doe
+					</blockquote>
+				</section>
+
+				<section data-background="#4d7e65" data-background-transition="zoom">
+					<div class="icons-wrapper" style="display: flex; width: 600px; margin: 0 auto; align-content: center; justify-content: space-between">
+						<img src="https://cdn.freelogovectors.net/wp-content/uploads/2023/02/react-logo-freelogovectors.net_-400x225.png" alt="react logo" style="height: 172px; margin: 0 auto 4rem auto; background: transparent;" class="react-logo">
+
+						<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Facebook_F_icon.svg/1024px-Facebook_F_icon.svg.png" alt="facebook logo" style="height: 140px; margin: 0 auto 4rem auto; background: transparent;" class="facebook-logo">
+					</div>
+
+					<h4>
+						React is a UI library developed by Facebook.
+					</h4>
+					<p style="font-style: italic">
+						It allows developers to build interfaces from components, ensuring modularity and code reuse.
+					</p>
+				</section>
+
+				<section>
+					<section data-background="#03A791" data-background-transition="zoom">
+						<h2>So what is React for and what problems does it solve?</h2>
+					</section>
+					<section data-background="#03A791" data-background-transition="zoom">
+						<h3>The concept of single-page applications (SPA) required developers to come up with more efficient solutions for managing state and updating the interface without reloading the page.</h3>
+					</section>
+
+					<section data-background="#03A791" data-background-transition="zoom">
+						<h3>1.	React is used to create interactive interfaces</h3>
+					</section>
+					<section data-background="#03A791" data-background-transition="zoom">
+						<h3>2.	State management</h3>
+						<p>
+							Virtual DOM allows you to manage component state efficiently. When a component's state changes, React updates only those parts of the interface that actually require changes.
+						</p>
+					</section>
+					<section data-background="#03A791" data-background-transition="zoom">
+						<h3>3.	Reusing components</h3>
+					</section>
+					<section data-background="#03A791" data-background-transition="zoom">
+						<h3>4.	React has a wide ecosystem.</h3>
+						<p>Large number of available libraries and tools:</p>
+						<ul style="list-style-type: circle">
+							<li>React Router</li>
+							<li>Redux</li>
+							<li>React DevTools</li>
+							<li>React Query</li>
+							<li>...</li>
+						</ul>
+					</section>
+					<section data-background="#03A791" data-background-transition="zoom">
+						<h3>5.	Rendering Optimization:</h3>
+						<p>
+							React uses Virtual DOM to efficiently update the interface, which reduces the cost of manipulating the real DOM
+						</p>
+					</section>
+					<section data-background="#03A791" data-background-transition="zoom">
+						<h3>6.	Improved Performance:</h3>
+						<p>
+							Using Virtual DOM allows to minimize the number of operations with the real DOM, which significantly speeds up the rendering process
+						</p>
+					</section>
+				</section>
+
+				<section>
+					<section data-background="#A4B465" data-background-transition="zoom">
+						<h4 style="color: white">Thus, the Virtual DOM is key to React, providing high performance, ease of development, and the ability to create complex and dynamic interfaces.
+							but virtual dom is used not only in React.
+							we can find it`s using in such frameworks and libraries as:
+						</h4>
+					</section>
+					<section data-background="#A4B465" data-background-transition="zoom">
+
+						<h3 style="color: white">Libraries and frameworks that use Virtual DOM:</h3>
+						<ul style="color: white; list-style-type: circle">
+							<li>React</li>
+							<li>Vue.js</li>
+							<li>Inferno</li>
+							<li>Elm</li>
+							<li>Preact</li>
+							<li>Riot.js</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section data-background="#9B3B99" data-background-transition="zoom">
+						<h4 style="color: white">
+							So let's take a look at concept of virtual DOM to understand what it is and how it works.
+						</h4>
+					</section>
+					<section data-background="#0D0C0D" data-background-transition="zoom">
+						<img src="./examples/assets/Quiz_1.png" alt="quiz logo" style="height: 372px; margin: 0 auto 4rem auto; background: transparent;" class="quiz-logo">
+					</section>
+					<section data-background="#0D0C0D" data-background-transition="zoom">
+						<img src="./examples/assets/Quiz_2.png" alt="quiz logo" style="height: 372px; margin: 0 auto 4rem auto; background: transparent;" class="quiz-logo">
+					</section>
+				</section>
+
+				<section>
+					<section data-background="#273F4F" data-background-transition="zoom" style="text-align: left">
+						<p>
+							Rendering is the process of converting React components into user interface (UI) elements that are displayed in a browser or other JavaScript runtime.
+						</p>
+						<p>
+							Each React component has a render method (for class components) or returns JSX (for functional components).
+							The render method or the return statement outputs a description of what the UI should look like.
+						</p>
+						<h4 style="text-align: center; color: #FFA55D">
+							Render - the first run, then re-renders
+						</h4>
+					</section>
+
+					<section data-background="#273F4F" data-background-transition="zoom" style="text-align: left">
+						<h3 style="text-align: center; color: #FFA55D">
+							Render (the first run):
+						</h3>
+						<ul style="list-style-type: none; font-size: 1.5rem">
+							<li>yarn/npm start -> </li>
+							<li>-> index.html will start rendering, the script connected to it will be launched -> </li>
+							<li>-> index.tsx -></li>
+							<li>-> App.tsx -></li>
+							<li>-> Each component in App.tsx processes its logic and the final jsx is returned -></li>
+							<li>-> Babel transpiler converts JSX to JavaScript function calls that create React elements -></li>
+							<li>-> Virtual DOM is created -></li>
+							<li>-> Virtual DOM to DOM 'commit' -></li>
+							<li>-> Based on the Virtual DOM, a DOM is created that is rendered in the browser</li>
+						</ul>
+						<h3 style="list-style-type: none; font-size: 1.85rem; color: #FFA55D; margin-top: 1rem">
+							At the moment we have <span style="color: #F75A5A">ONE</span> Virtual DOM
+						</h3>
+					</section>
+
+					<section data-background="#273F4F" data-background-transition="zoom" style="text-align: left">
+						<h3 style="text-align: center; color: #FFA55D">
+							Re-render (next runs):
+						</h3>
+						<p style="font-size: 1.25rem; color: #FAD59A">
+							A react component re-renders. This can be triggered by State Update, Parent Component Re-renders, Props Change, Context Updates, Hooks Dependency Changes (useEffect, useMemo, useCallback), Force Update, External Changes (Redux, Zustand, etc.)
+						</p>
+						<ul style="list-style-type: none; font-size: 1.25rem">
+							<li> The component’s render method (for class components) or the function body (for functional components) is executed again. This returns new JSX based on the updated state or props -> </li>
+							<li>-> Babel Transpilation: JSX returned from the component is transpiled into JavaScript function calls that create React elements -> </li>
+							<li>-> Creating a New Virtual DOM: A new virtual DOM representation of the UI is created based on the updated JSX -></li>
+							<li>-> Diffing the Virtual DOM: React compares the new virtual DOM with the previous virtual DOM to identify changes. This process is called reconciliation -></li>
+							<li>-> Updating the Actual DOM: Based on the differences found, React updates only the parts of the actual DOM that have changed. This is known as the "commit" phase -></li>
+							<li>-> Rendering in the Browser: The updated DOM is rendered in the browser, reflecting the changes made by the latest state or props -></li>
+						</ul>
+
+						<p style="list-style-type: none; font-size: 1.5rem">
+							When React creates a new Virtual DOM, it replaces the old Virtual DOM with a reference to the new object in memory. The garbage collector removes the old, obsolete Virtual DOM because there are no references to it.
+						</p>
+						<h3 style="font-size: 1.85rem; color: #FFA55D">
+							Therefore we can say that at certain stages of re-rendering we have <span style="color: #F75A5A">TWO</span> Virtual DOMs
+						</h3>
+					</section>
+				</section>
+
+				<section>
+					<section data-background="#693382" data-background-transition="zoom" style="text-align: left">
+						<p style="font-size: 1.5rem; text-align: center">Everytime the state of a React application changes, it triggers a re-render of the components that depend on that state, the virtual DOM gets updated instead of the real DOM.</p>
+
+						<h3 style="font-size: 1.85rem; color: #FFA55D; text-align: center">
+							So what is Virtual DOM and why is changing it faster than changing DOM?
+						</h3>
+					</section>
+
+					<section data-background="#693382" data-background-transition="zoom" style="text-align: left; font-size: 1.5rem">
+						<p>
+							1. Virtual DOM - this is an object. It stores the interface structure as a tree of objects that reflect the current state of the UI.
+						</p>
+						<p>
+							2. Virtual DOM is a lightweight version of DOM
+						</p>
+						<p>
+							3. Virtual DOM has only PROPERTIES, but no methods, and we do not have access to PROPERTIES
+						</p>
+						<p>
+							4. DOM is stored in the browser, and Virtual DOM is in the computer's RAM (since the Virtual DOM exists in RAM, updates and comparisons can be done much faster than with the actual DOM, which is managed by the browser).
+						</p>
+						<p style="color: #F75A5A">
+							React can batch multiple state updates into a single re-render cycle, reducing the number of times the real DOM is accessed and improving performance.
+						</p>
+
+						<p style="color: #FFA725">
+							The process of comparing the updated Virtual DOM with the current one is called RECONCILIATION (or diffing). The improved mechanism of comparison and searching for differences between Virtual DOMs also brings a significant increase in the performance of React applications. The description of this process is worthy of a separate lecture and is not included in this presentation.
+						</p>
+					</section>
+				</section>
+
+				<section>
+					<section data-background="#F6F8D5" data-background-transition="zoom">
+						<h3 style="color: #205781">The Importance of Virtual DOM in Modern Web Development:</h3>
+					</section>
+					<section data-background="#F6F8D5" data-background-transition="zoom">
+						<h3 style="color: #205781">1. Improved performance</h3>
+					</section>
+					<section data-background="#F6F8D5" data-background-transition="zoom">
+						<h3 style="color: #205781">2. Improving application responsiveness</h3>
+					</section>
+					<section data-background="#F6F8D5" data-background-transition="zoom">
+						<h3 style="color: #205781">3. Making the development process easier</h3>
+					</section>
+					<section data-background="#F6F8D5" data-background-transition="zoom">
+						<h3 style="color: #205781">4. Independence from the development platform</h3>
+					</section>
+					<section data-background="#F6F8D5" data-background-transition="zoom">
+						<h3 style="color: #205781">5. Support for complex interfaces</h3>
+					</section>
+					<section data-background="#F6F8D5" data-background-transition="zoom">
+						<h3 style="color: #205781">6. Rendering optimization</h3>
+					</section>
+					<section data-background="#F6F8D5" data-background-transition="zoom">
+						<h3 style="color: #205781">7. Broad application in the ecosystem</h3>
+					</section>
+				</section>
+
+				<section data-background="#3F7D58" data-background-transition="zoom" style="text-align: left">
+					<h3 style="text-align: center; color: #FFA55D">
+						Disadvantages and Limitations of Virtual DOM:
+					</h3>
+					<ul style="list-style-type: circle; font-size: 1.5rem;">
+						<li style="margin: 1rem">Abstraction from the real DOM</li>
+						<li style="margin: 1rem">Debugging tools</li>
+						<li style="margin: 1rem">Difficulty debugging component state</li>
+					</ul>
+				</section>
+
+				<section data-background="#526E48" data-background-transition="zoom" style="text-align: left">
+					<h3 style="text-align: center; color: #F6E96B">
+						Is the virtual DOM the same as the shadow DOM?
+					</h3>
+					<p style="font-size: 1.5rem; color: #E9EED9">
+						Whereas the Virtual DOM is a programming concept implemented by React predominantly to increase rendering performance, the Shadow DOM is a browser technology designed for scoping variables and CSS in web components.
+					</p>
+					<p style="font-size: 1.5rem; color: #E9EED9">
+						The Virtual DOM allows React to isolate changes to specific components, minimizing the impact on the rest of the application and improving overall stability.
+					</p>
+					<p style="font-size: 1.5rem; color: #E9EED9">
+						Only in terms of data encapsulation we can find something in common between Virtual DOM and Shadow DOM.
+					</p>
+					<p style="font-size: 1.5rem; color: #E9EED9">
+						Otherwise, virtual DOM and Shadow DOM sound similar in name, but that's where the similarities end - they are completely unrelated.
+					</p>
+				</section>
+				<section data-background="#006A71" data-background-transition="zoom" style="text-align: left">
+					<h3 style="text-align: center; color: #F6E96B">
+						Conclusions
+					</h3>
+					<p style="font-size: 1.5rem; color: #E9EED9">
+						Although the concept of Virtual DOM is apparently simple, it brings a big change in the way graphical interfaces are developed.
+					</p>
+					<p style="font-size: 1.5rem; color: #E9EED9">
+						And it is easy to understand where the idea that the Virtual DOM would bring better performance came from. Actually, this technique allows the amount of changes in the DOM to be minimized with little effort. So, in a way, it helps a lot in the development of fast and light pages.
+					</p>
+					<p style="font-size: 1.5rem; color: #E9EED9">
+						Overall, Virtual DOM allows developers to create more responsive and performant web applications by minimizing the cost of interface updates.
+					</p>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
