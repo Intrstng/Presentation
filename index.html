@@ -88,9 +88,11 @@
 				<section>
 					<section data-background="#A4B465" data-background-transition="zoom">
 						<p style="color: white">Thus, the Virtual DOM is key to React, providing high performance, ease of development, and the ability to create complex and dynamic interfaces.
-							but virtual dom is used not only in React.
-							We can find it`s using in such frameworks and libraries as:
+							But Virtual DOM is used not only in React.
 						</p>
+						<h3 style="color: white; font-size: 2rem">
+							We can find it`s using in such frameworks and libraries as:
+						</h3>
 					</section>
 					<section data-background="#A4B465" data-background-transition="zoom" style="text-align: left">
 
@@ -126,7 +128,7 @@
 					</section>
 					<section data-background="#9B3B99" data-background-transition="zoom">
 						<p style="color: white; font-size: 1.75rem">
-							The idea is that instead of changing the DOM objects directly, a representation of it is kept in memory in a JavaScript object. When any change to the screen is needed, a new Virtual DOM is created, with a new representation of the page. The library will then compare these two objects (the previous version which represents the old screen and the one that represents the new content that should be displayed), find out what changes need to be applied to the browser DOM so that it looks the same as what is in the Virtual DOM, and finally apply these changes to the browser DOM to sync it with the new Virtual DOM.
+							The idea is that instead of changing the DOM objects directly, a representation of it is kept in memory in a JavaScript object. When any change to the screen is needed, a <span style="color: #F75A5A; font-weight: bold">new</span> Virtual DOM is created, with a new representation of the page. The library will then compare these two objects (the previous version which represents the old screen and the one that represents the new content that should be displayed), find out what changes need to be applied to the browser DOM so that it looks the same as what is in the Virtual DOM, and finally apply these changes to the browser DOM to sync it with the new Virtual DOM.
 						</p>
 					</section>
 					<section data-background="#0A090C" data-background-transition="zoom">
@@ -193,7 +195,7 @@
 <!--Операции с реальным DOM медленны, что приводило к задержкам и снижению отзывчивости интерфейса.-->
 					<section data-background="#273F4F" data-background-transition="zoom" style="text-align: left">
 						<img src="./examples/assets/Virtual_DOMs.png" alt="Virtual_DOMs" style="height: 300px; display: block; margin: 0 auto 2rem auto; background: transparent;" class="vdom">
-						<p style="list-style-type: none; font-size: 1.5rem">
+						<p style="list-style-type: none; font-size: 1.5rem; text-align: center">
 							When React creates a new Virtual DOM, it replaces the old Virtual DOM with a reference to the new object in memory. The garbage collector removes the old, obsolete Virtual DOM because there are no references to it.
 						</p>
 					</section>
@@ -217,10 +219,10 @@
 							So what is Virtual DOM and why is changing it faster than changing DOM?
 						</h3>
 						<p>
-							1. Virtual DOM - this is an object. It stores the interface structure as a tree of objects that reflect the current state of the UI.
+							1. Virtual DOM is a lightweight version of DOM.
 						</p>
 						<p>
-							2. Virtual DOM is a lightweight version of DOM.
+							2. Virtual DOM - this is an object. It stores the interface structure as a tree of objects that reflect the current state of the UI.
 						</p>
 						<p>
 							3. Virtual DOM has only PROPERTIES, but no methods, and we do not have access to PROPERTIES.
