@@ -49,10 +49,6 @@
 						<h2>So what is React for and what problems does it solve?</h2>
 					</section>
 					<section data-background="#03A791" data-background-transition="zoom">
-						<h3>The concept of single-page applications (SPA) required developers to come up with more efficient solutions for managing state and updating the interface without reloading the page.</h3>
-					</section>
-
-					<section data-background="#03A791" data-background-transition="zoom">
 						<h3>1.	React is used to create interactive interfaces</h3>
 					</section>
 					<section data-background="#03A791" data-background-transition="zoom">
@@ -91,15 +87,15 @@
 
 				<section>
 					<section data-background="#A4B465" data-background-transition="zoom">
-						<h4 style="color: white">Thus, the Virtual DOM is key to React, providing high performance, ease of development, and the ability to create complex and dynamic interfaces.
+						<p style="color: white">Thus, the Virtual DOM is key to React, providing high performance, ease of development, and the ability to create complex and dynamic interfaces.
 							but virtual dom is used not only in React.
-							we can find it`s using in such frameworks and libraries as:
-						</h4>
+							We can find it`s using in such frameworks and libraries as:
+						</p>
 					</section>
-					<section data-background="#A4B465" data-background-transition="zoom">
+					<section data-background="#A4B465" data-background-transition="zoom" style="text-align: left">
 
-						<h3 style="color: white">Libraries and frameworks that use Virtual DOM:</h3>
-						<ul style="color: white; list-style-type: circle">
+						<h4 style="color: white; font-size: 2.4rem">Libraries and frameworks that use Virtual DOM:</h4>
+						<ul style="color: white; list-style-type: circle; font-size: 1.8rem">
 							<li>React</li>
 							<li>Vue.js</li>
 							<li>Inferno</li>
@@ -113,13 +109,30 @@
 				<section>
 					<section data-background="#9B3B99" data-background-transition="zoom">
 						<h4 style="color: white">
-							So let's take a look at concept of virtual DOM to understand what it is and how it works.
+							So let's take a look at concept of virtual DOM to understand what it is and how it works
 						</h4>
 					</section>
-					<section data-background="#0D0C0D" data-background-transition="zoom">
+					<section data-background="#9B3B99" data-background-transition="zoom">
+						<p style="margin-bottom: 3rem">The concept of single-page applications (SPA) required developers to come up with more efficient solutions for managing state and updating the interface without reloading the page.</p>
+						<p>Operations on the real DOM are slow, resulting in lag and reduced UI responsiveness.</p>
+					</section>
+					<section data-background="#9B3B99" data-background-transition="zoom">
+						<h4 style="color: white; font-size: 2rem">
+							Developers looked for ways to optimize UI updates.
+						</h4>
+						<p style="color: white; font-size: 1.75rem">
+							They realized that they could create an abstraction over the real DOM, allowing changes to be made to the virtual representation first, and then minimally update the real DOM.
+						</p>
+					</section>
+					<section data-background="#9B3B99" data-background-transition="zoom">
+						<p style="color: white; font-size: 1.75rem">
+							The idea is that instead of changing the DOM objects directly, a representation of it is kept in memory in a JavaScript object. When any change to the screen is needed, a new Virtual DOM is created, with a new representation of the page. The library will then compare these two objects (the previous version which represents the old screen and the one that represents the new content that should be displayed), find out what changes need to be applied to the browser DOM so that it looks the same as what is in the Virtual DOM, and finally apply these changes to the browser DOM to sync it with the new Virtual DOM.
+						</p>
+					</section>
+					<section data-background="#0A090C" data-background-transition="zoom">
 						<img src="./examples/assets/Quiz_1.png" alt="quiz logo" style="height: 372px; margin: 0 auto 4rem auto; background: transparent;" class="quiz-logo">
 					</section>
-					<section data-background="#0D0C0D" data-background-transition="zoom">
+					<section data-background="#0A090C" data-background-transition="zoom">
 						<img src="./examples/assets/Quiz_2.png" alt="quiz logo" style="height: 372px; margin: 0 auto 4rem auto; background: transparent;" class="quiz-logo">
 					</section>
 				</section>
@@ -162,10 +175,10 @@
 						<h3 style="text-align: center; color: #FFA55D">
 							Re-render (next runs):
 						</h3>
-						<p style="font-size: 1.25rem; color: #FAD59A">
+						<p style="font-size: 1.5rem; color: #FAD59A">
 							A react component re-renders. This can be triggered by State Update, Parent Component Re-renders, Props Change, Context Updates, Hooks Dependency Changes (useEffect, useMemo, useCallback), Force Update, External Changes (Redux, Zustand, etc.)
 						</p>
-						<ul style="list-style-type: none; font-size: 1.25rem">
+						<ul style="list-style-type: none; font-size: 1.5rem">
 							<li> The component’s render method (for class components) or the function body (for functional components) is executed again. This returns new JSX based on the updated state or props -> </li>
 							<li>-> Babel Transpilation: JSX returned from the component is transpiled into JavaScript function calls that create React elements -> </li>
 							<li>-> Creating a New Virtual DOM: A new virtual DOM representation of the UI is created based on the updated JSX -></li>
@@ -173,34 +186,44 @@
 							<li>-> Updating the Actual DOM: Based on the differences found, React updates only the parts of the actual DOM that have changed. This is known as the "commit" phase -></li>
 							<li>-> Rendering in the Browser: The updated DOM is rendered in the browser, reflecting the changes made by the latest state or props -></li>
 						</ul>
-
+						<h3 style="font-size: 1.85rem; color: #FFA55D">
+							Therefore we can say that at certain stages of re-rendering we have <span style="color: #F75A5A">TWO</span> Virtual DOMs (current and updated Virtual DOMS)
+						</h3>
+					</section>
+<!--Операции с реальным DOM медленны, что приводило к задержкам и снижению отзывчивости интерфейса.-->
+					<section data-background="#273F4F" data-background-transition="zoom" style="text-align: left">
+						<img src="./examples/assets/Virtual_DOMs.png" alt="Virtual_DOMs" style="height: 300px; display: block; margin: 0 auto 2rem auto; background: transparent;" class="vdom">
 						<p style="list-style-type: none; font-size: 1.5rem">
 							When React creates a new Virtual DOM, it replaces the old Virtual DOM with a reference to the new object in memory. The garbage collector removes the old, obsolete Virtual DOM because there are no references to it.
 						</p>
-						<h3 style="font-size: 1.85rem; color: #FFA55D">
-							Therefore we can say that at certain stages of re-rendering we have <span style="color: #F75A5A">TWO</span> Virtual DOMs
-						</h3>
 					</section>
 				</section>
 
 				<section>
-					<section data-background="#693382" data-background-transition="zoom" style="text-align: left">
-						<p style="font-size: 1.5rem; text-align: center">Everytime the state of a React application changes, it triggers a re-render of the components that depend on that state, the virtual DOM gets updated instead of the real DOM.</p>
+					<section data-background="#257180" data-background-transition="zoom" style="text-align: left; font-size: 1.5rem; color: #F2E5BF">
+						<h3 style="text-align: center; color: #FFA55D">
+							Direct changing of the DOM is slow for several reasons:
+						</h3>
+						<p>- The DOM represents the entire structure of a webpage, including its elements and their relationships. Modifying this complex structure requires significant processing.</p>
+						<p>- When changes are made to the DOM, the browser may need to recalculate the layout (reflow) and redraw the elements (repaint), which can be resource-intensive.</p>
+						<p>- DOM updates can block the main thread, leading to delays in rendering and user interactions.</p>
+						<p>- If DOM updates are not batched efficiently, multiple separate updates can lead to multiple reflows and repaints, further slowing down the process.</p>
+						<p>- The DOM consumes more memory than in-memory data structures (like the Virtual DOM).</p>
+						<h3 style="margin-top: 2rem; font-size: 1.3rem">These factors contribute to the overall slowness of direct DOM manipulation compared to using more efficient methods like the Virtual DOM.</h3>
+					</section>
 
+					<section data-background="#257180" data-background-transition="zoom" style="text-align: left; font-size: 1.5rem">
 						<h3 style="font-size: 1.85rem; color: #FFA55D; text-align: center">
 							So what is Virtual DOM and why is changing it faster than changing DOM?
 						</h3>
-					</section>
-
-					<section data-background="#693382" data-background-transition="zoom" style="text-align: left; font-size: 1.5rem">
 						<p>
 							1. Virtual DOM - this is an object. It stores the interface structure as a tree of objects that reflect the current state of the UI.
 						</p>
 						<p>
-							2. Virtual DOM is a lightweight version of DOM
+							2. Virtual DOM is a lightweight version of DOM.
 						</p>
 						<p>
-							3. Virtual DOM has only PROPERTIES, but no methods, and we do not have access to PROPERTIES
+							3. Virtual DOM has only PROPERTIES, but no methods, and we do not have access to PROPERTIES.
 						</p>
 						<p>
 							4. DOM is stored in the browser, and Virtual DOM is in the computer's RAM (since the Virtual DOM exists in RAM, updates and comparisons can be done much faster than with the actual DOM, which is managed by the browser).
@@ -212,6 +235,11 @@
 						<p style="color: #FFA725">
 							The process of comparing the updated Virtual DOM with the current one is called RECONCILIATION (or diffing). The improved mechanism of comparison and searching for differences between Virtual DOMs also brings a significant increase in the performance of React applications. The description of this process is worthy of a separate lecture and is not included in this presentation.
 						</p>
+					</section>
+					<section data-background="#257180" data-background-transition="zoom" style="text-align: left">
+						<p style="font-size: 1.5rem; text-align: center; color: #F2E5BF">Everytime the state of a React application changes, it triggers a re-render of the components that depend on that state, the Virtual DOM gets updated instead of the real DOM.</p>
+
+						<img src="examples/assets/Reconciliation.png" alt="reconciliation logo" style="height: 300px; margin: 0 auto 2rem; display:block; background: transparent;" class="reconciliation">
 					</section>
 				</section>
 
